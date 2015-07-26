@@ -7,11 +7,11 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: { // Here we enable some experimental features:
-        'ember-routing-htmlbars-improved-actions': true,
-        'ember-views-component-block-info': true,
-        'ember-htmlbars-component-generation': true
-      }
+      //FEATURES: { // Here we enable some experimental features:
+      //  'ember-routing-htmlbars-improved-actions': true,
+      //  'ember-views-component-block-info': true,
+      //  'ember-htmlbars-component-generation': true
+      //}
     },
 
     APP: {
