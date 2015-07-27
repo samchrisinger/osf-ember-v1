@@ -9,6 +9,6 @@ export default DS.Model.extend({
   startYear: DS.attr('number'),
   endMonth: DS.attr('number'),
   endYear: DS.attr('number'),
-  ongoing: DS.attr('bool'),
-  active: DS.attr('bool')
+  ongoing: DS.attr('boolean'),
+  active: DS.attr('boolean')
 });
