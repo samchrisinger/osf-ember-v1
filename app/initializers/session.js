@@ -15,15 +15,15 @@ export function initialize(container, application) {
     var session = container.lookup('controller:session');
     session.set('model', user);
 
-    application.register('services:session', session, { singleton: true, instantiate: false });
-    application.inject('controller', 'session', 'services:session');
+    application.register('service:session', session, { singleton: true, instantiate: false });
+    application.inject('controller', 'session', 'service:session');
 
     application.advanceReadiness();
   });
 }
 
 export default {
-  name: 'services',
+  name: 'service:session',
   after: 'store',
   initialize: initialize
 };
