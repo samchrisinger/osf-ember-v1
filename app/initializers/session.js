@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 export function initialize(container, application) {
   application.deferReadiness();
 
