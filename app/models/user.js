@@ -6,5 +6,5 @@ export default DS.Model.extend({
   //lastName: DS.attr('string'),
   //birthday:  DS.attr('date'),
   jobs: DS.hasMany('user-job'),
-  active: DS.attr('bool')
+  active: DS.attr('boolean')
 });
