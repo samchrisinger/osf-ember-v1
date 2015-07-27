@@ -6,7 +6,6 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('items');
   this.route('settings', function() {
     this.route('account');
     this.route('profile');

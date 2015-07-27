@@ -1,8 +1,13 @@
 <h1>App: {{appName}}</h1>
 
-{{#site-header fullName=sessionModel.fullName cntrFullName=session.fullName}}{{/site-header}}
+{{#site-header fullName=fullName}}{{/site-header}}
 
 <h2 id="title">Application</h2>
+
+<div>
+    {{link-to 'Home' 'index'}}
+    {{link-to 'Settings' 'settings'}}
+</div>
 
 {{outlet}}
 

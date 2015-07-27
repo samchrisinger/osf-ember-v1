@@ -1,5 +1,4 @@
-{{! app/index/template.hbs }}
-{{link-to 'Items' 'items'}}
-{{link-to 'Settings' 'settings'}}
+<h2>Index</h2>
+<div>User: {{session.fullName}}</div>
 
-<div>User: {{model.user.firstName}}</div>
+{{outlet}}
