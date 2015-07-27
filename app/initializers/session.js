@@ -5,7 +5,7 @@ export function initialize(container, application) {
     var user = users.objectAt(0);
 
     if (!user) {
-      user = application.container.lookup('service:store').createRecord('user');
+      user = container.lookup('service:store').createRecord('user');
       user.set('fullName', 'John Doe');
       user.save();
     }
