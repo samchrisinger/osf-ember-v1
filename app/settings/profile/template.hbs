@@ -1,7 +1,7 @@
 <h2>Profile</h2>
 
 <form {{action "save" on="submit"}}>
-    {{#profile-name-form fullName=fullName}}{{/profile-name-form}}
+    {{#profile-name-form fullName=session.fullName}}{{/profile-name-form}}
     <hr />
     {{#profile-citation-preview}}{{/profile-citation-preview}}
     <hr />
