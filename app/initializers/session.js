@@ -1,13 +1,13 @@
 export function initialize(container, application) {
   application.deferReadiness();
 
-  container.lookup('service:store').findAll('user').then((users) => {
+  container.lookup('service:store').findAll('users').then((users) => {
     var user = users.objectAt(0);
 
     if (!user) {
       user = container.lookup('service:store').createRecord('user');
       user.set('fullName', 'John Doe');
-      user.save();
+      //user.save();
     }
 
     var session = container.lookup('controller:session');

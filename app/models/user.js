@@ -1,10 +1,13 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  fullName: DS.attr('string'),
-  //firstName: DS.attr('string'),
-  //lastName: DS.attr('string'),
-  //birthday:  DS.attr('date'),
-  jobs: DS.hasMany('user-job'),
+  fullname: DS.attr('string'),
+  givenName: DS.attr('string'),
+  middleName: DS.attr('string'),
+  familyName: DS.attr('string'),
+  suffixName: DS.attr('string'),
+  dateRegistered: DS.attr('date'),
+  gravatarUrl: DS.attr('string'),
+  employmentInstitutions: DS.hasMany('user-employment'),
   active: DS.attr('boolean')
 });
