@@ -1,14 +1,12 @@
-<h2>Profile</h2>
+<h2 class="page-header">Profile Information</h2>
 
-<form {{action "save" on="submit"}}>
-    {{#profile-name-form fullName=session.model.fullname}}{{/profile-name-form}}
-    <hr />
-    {{#profile-citation-preview}}{{/profile-citation-preview}}
-    <hr />
-    <button type="button" {{action "cancel"}}>Cancel</button>
-    <button type="submit">Save</button>
-</form>
-
-<div>debug: {{fullName}}</div>
+<div id="userProfile">
+    {{#tab-nav}}
+      <!-- TODO: link-to shouldn't be used here. It belongs in teh -->
+      <!-- tab-nav-link component instead. Figure out how to pass down -->
+      <!-- props to link-to -->
+      {{#tab-nav-link}} {{link-to 'Name' 'settings.profile.names'}} {{/tab-nav-link}}
+    {{/tab-nav}}
+</div>
 
 {{outlet}}

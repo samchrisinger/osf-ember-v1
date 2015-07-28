@@ -8,7 +8,9 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('settings', function() {
     this.route('account');
-    this.route('profile');
+    this.route('profile', function() {
+        this.route('names');
+    });
     this.route('addons');
     this.route('notifications');
   });

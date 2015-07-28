@@ -1,0 +1,12 @@
+<form {{action "save" on="submit"}}>
+    {{#profile-name-form fullName=session.model.fullname}}{{/profile-name-form}}
+    <hr />
+    {{#profile-citation-preview}}{{/profile-citation-preview}}
+    <hr />
+    <button type="button" {{action "cancel"}}>Cancel</button>
+    <button type="submit">Save</button>
+</form>
+
+<div>debug: {{fullName}}</div>
+
+{{outlet}}
