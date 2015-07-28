@@ -1,4 +1,13 @@
-<div>fullName: {{fullName}}</div>
-<div>{{input type="text" value=fullName}}</div>
+{{#em-form submit_button=false}}
+  {{em-input label="Full Name (e.g. Rosalind Elsie Franklin)" }}
 
-{{yield}}
+  {{profile-citation-preview}}
+
+  <div class="p-t-lg p-b-lg">
+      <!-- TODO: Add cancel behavior -->
+      <button type="button"
+          class="btn btn-default">Cancel</button>
+      <!-- TODO: Disable if submit is pending -->
+      <button type="submit" class="btn btn-success">Save</button>
+  </div>
+{{/em-form}}
