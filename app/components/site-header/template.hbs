@@ -15,8 +15,14 @@
       <!--   </a> -->
       <!-- </span> -->
       <!-- /ko -->
-      <a class="navbar-brand hidden-sm hidden-xs" href="/"><img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/> Open Science Framework</a>
-      <a class="navbar-brand visible-sm visible-xs" href="/"><img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/> OSF</a>
+      {{#link-to 'index' class="navbar-brand hidden-sm hidden-xs"}}
+        Open Science Framework
+        <img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/>
+      {{/link-to}}
+      {{#link-to 'index' class="navbar-brand visible-sm visible-xs"}}
+        OSF
+        <img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/>
+      {{/link-to}}
     </div>
 
     <div id="navbar" class="navbar-collapse collapse navbar-right">
