@@ -1,25 +1,15 @@
+<div class="container">
 <h2 class="page-header">Settings</h2>
 
 <div class="row">
-
   <div class="col-sm-3 affix-parent">
-    <div class="osf-affix profile-affix panel panel-default affix-top" data-spy="affix" data-offset-top="70" data-offset-bottom="268" style="width: 263px;">
-      <ul class="nav nav-stacked nav-pills">
-        {{#link-to "settings.account" tagName="li"}}
-        <a {{bind-attr href="view.href"}}>Profile Information</a>
-        {{/link-to}}
-        {{#link-to "settings.addons" tagName="li"}}
-        <a {{bind-attr href="view.href"}}>Configure Add-on Accounts</a>
-        {{/link-to}}
-        {{#link-to "settings.notifications" tagName="li"}}
-        <a {{bind-attr href="view.href"}}>Notifications</a>
-        {{/link-to}}
-      </ul>
-    </div>
+    {{#nav-pills links=model.links thing="word"}}
+    {{/nav-pills}}
   </div>
 
   <div class="col-sm-9 col-md-7">
     {{outlet}}
   </div>
 
+</div>
 </div>
