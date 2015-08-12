@@ -1,0 +1,11 @@
+<div class="osf-affix profile-affix panel panel-default affix-top" data-spy="affix" data-offset-top="70" data-offset-bottom="268" style="width: 263px;">
+<ul class="nav nav-stacked nav-pills">
+  {{#each links as |link|}}
+    {{#link-to link.route tagName="li"}}
+    <a {{bind-attr href="view.href"}}>{{link.title}}</a>
+    {{/link-to}}
+  {{/each}}
+</ul>
+</div>
+
+{{yield}}
