@@ -1,13 +1,22 @@
 {{#site-header session=session}}{{/site-header}}
 
+<style>
+#devmode {
+  position:fixed;
+  bottom:0;
+  left:0;
+  border-top-right-radius:8px;
+  background-color:red;
+  color:white;
+  padding:.5em;
+  z-index: 999;
+}
+</style>
+<div id="devmode"><strong>WARNING</strong>: This site is running in development mode.</div>
 
-<h2 id="title">Application</h2>
-
-<div>
-    {{link-to 'Home' 'index'}}
-    {{link-to 'Settings' 'settings'}}
+<div class="watermarked">
+  {{outlet}}
 </div>
 
-{{outlet}}
 
 {{#site-footer}}{{/site-footer}}
