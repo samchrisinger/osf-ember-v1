@@ -12,6 +12,8 @@ Router.map(function() {
     this.route('addons');
     this.route('notifications');
   });
+  this.route('dashboard');
+  this.route('forgotpassword');
 });
 
 export default Router;
