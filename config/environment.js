@@ -13,8 +13,17 @@ module.exports = function(environment) {
       //  'ember-htmlbars-component-generation': true
       //}
     },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self'",
+      'img-src': "'self' data:",
+      'style-src': "'self' 'unsafe-inline'",
+    },
 
     APP: {
+        devMode: environment === 'development'
       // Here you can pass flags/options to your application instance
       // when it is created
     }
