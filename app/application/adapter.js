@@ -1,5 +1,16 @@
+import Ember from 'ember';
+import DS from 'ember-data';
+
 export default DS.RESTAdapter.extend({
-  addTrailingSlashes: false,
-  host: 'http://localhost:8000',
-  namespace: 'v2'
+    host: Osf.API_HOST,
+    namespace: Osf.API_NAMESPACE,
+    headers: function() {
+        return {
+            Authorization: 'Bearer ' + Ember.get(document.cookie.match(/osf\=([^;]*)/), "1")
+        };
+    }.property().volatile(),
+    buildURL: function(type, id, record) {
+        //call the default buildURL and then append a slash
+        return this._super(type, id, record) + '/';
+    },
 });
