@@ -2,8 +2,12 @@ import Ember from 'ember';
 
 var PAGE_LINKS = [
 {
-    route: 'settings.account',
+    route: 'settings.profile',
     title: 'Profile Information'
+},
+{
+    route: 'settings.account',
+    title: 'Account Settings'
 },
 {
     route: 'settings.addons',
