@@ -1,0 +1,80 @@
+<header class="subhead" id="overview">
+<div class="row">
+  <div class="col-sm-6 col-md-7 cite-container">
+    <h2 class="node-title">
+      <span id="nodeTitleEditable" class="overflow">{{model.title}}</span>
+    </h2>
+  </div>
+
+  <div class="col-sm-6 col-md-5">
+    <div class="btn-toolbar node-control pull-right">
+      <div class="btn-group">
+        <button class="btn btn-default">
+          {{#if model.public}}Public{{else}}Private{{/if}}
+        </button>
+      </div>
+      <!-- <1!-- ko if: canBeOrganized --1> -->
+      <!-- <div class="btn-group" data-bind="visible: true"> -->
+
+      <!--   <1!-- ko ifnot: inDashboard --1> -->
+      <!--   <a id="addDashboardFolder" data-bind="click: addToDashboard, tooltip: {title: 'Add to Dashboard Folder', -->
+      <!--   placement: 'bottom', container : 'body'}" class="btn btn-default" data-original-title="" title=""> -->
+      <!--     <i class="fa fa-folder-open"></i> -->
+      <!--     <i class="fa fa-plus"></i> -->
+      <!--   </a> -->
+      <!--   <1!-- /ko --1> -->
+      <!--   <1!-- ko if: inDashboard --1><1!-- /ko --1> -->
+
+      <!-- </div> -->
+      <!-- <1!-- /ko --1> -->
+      <div class="btn-group">
+        <a data-bind="click: toggleWatch, tooltip: {title: watchButtonAction, placement: 'bottom', container : 'body'}" class="btn btn-default" data-container="body" href="#" data-original-title="" title="">
+          <i class="fa fa-eye"></i>
+          <span data-bind="text: watchButtonDisplay" id="watchCount">0</span>
+        </a>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-default">
+          <span class="glyphicon glyphicon-share"></span>&nbsp; 0
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contributors" class="row" style="line-height:25px">
+  <div class="col-sm-12">
+    <div id="contributorsList" style="height: auto; overflow: hidden;">
+      Contributors:
+      <ol>
+        {{#each model.contributors as |contributor|}}
+        {{#user model=contributor}}
+        {{/user}}
+        {{/each}}
+      </ol>
+      <div id="contributorsList-gradient" class="toggle-height-gradient" style="display:none">
+      </div>
+    </div>
+    <div id="contributorsList-toggle" class="toggle-height-toggle text-center" style="display:none">
+    </div>
+    <p>
+    Date Created:
+    <span class="date node-date-created">{{model.dateCreated}}</span>
+    | Last Updated:
+    <span class="date node-last-modified-date">{{model.dateModified}}</span>
+    </p>
+    <span data-bind="if: hasIdentifiers()" class="scripted" style="display: inline;"></span>
+    <span data-bind="if: canCreateIdentifiers()" class="scripted" style="display: inline;"></span>
+    <p>
+    Category: <span class="node-category">{{model.category}}</span>
+    &nbsp;
+    <span class="fa fa-cube"></span>
+    </p>
+
+  </div>
+</div>
+
+</header>
+
+
+{{yield}}

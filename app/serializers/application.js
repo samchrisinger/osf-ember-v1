@@ -5,8 +5,6 @@ export default DS.RESTSerializer.extend({
         return this._super(type, humps.camelizeKeys(payload), key);
     },
     normalizePayload(payload) {
-        return {
-            [payload.data.type]: payload.data
-        };
+        return {[payload.data.type]: payload.data};
     },
 });

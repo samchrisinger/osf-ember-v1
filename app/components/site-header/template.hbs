@@ -27,9 +27,9 @@
 
     <div id="navbar" class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
-        <!-- % if user_name: -->
-        <!-- <li><a href="/dashboard/">My Dashboard</a></li> -->
-        <!-- % endif -->
+        {{#if session.isAuthenticated}}
+        <li><a href="/dashboard/">My Dashboard</a></li>
+        {{/if}}
         {{#drop-down title="Browse" tagName="li"}}
             <li><a href="/explore/activity/">New Projects</a></li>
             <li><a href="/search/?q=*&amp;filter=registration">Registry</a></li>
@@ -50,30 +50,37 @@
         <!-- /ko -->
         {{#if session.isAuthenticated}}
         <li>
-          <a class="hidden-lg hidden-xs nav-profile" href="/profile/">
-            <span rel="tooltip" data-placement="bottom" title="${user_name}" class="osf-gravatar"><img src="${user_gravatar}" alt="User gravatar"/> </span>
-          </a>
-          <a class="visible-lg visible-xs nav-profile" href="/profile/">
-            <span rel="tooltip" data-placement="bottom" title="${user_name}"><span class="osf-gravatar"> <img src="${user_gravatar}" alt="User gravatar"/> </span> ${display_name}</span>
-          </a>
+          {{#link-to profile class="hidden-lg hidden-xs nav-profile"}}
+          <span rel="tooltip" data-placement="bottom" title={{session.fullname}} class="osf-gravatar">
+            <img width="27px" src="{{session.model.gravitarUrl}}" alt="User gravatar"/>
+          </span>
+          {{/link-to}}
+          {{#link-to profile class="visible-lg visible-xs nav-profile"}}
+          <span rel="tooltip" data-placement="bottom" title="{{session.fullname}}">
+            <span class="osf-gravatar">
+              <img width="27px" src="{{session.model.gravatarUrl}}" alt="User gravatar"/>
+            </span> 
+            {{session.fullname}}
+          </span>
+          {{/link-to}}
         </li>
         <li>
-          <a href="${web_url_for('user_profile')}">
+          {{#link-to 'settings.profile'}}
             <span rel="tooltip" data-placement="bottom" title="Settings" class="fa fa-cog hidden-xs fa-lg"></span>
             <span class="visible-xs">Settings</span>
-          </a>
+          {{/link-to}}
         </li>
         <li>
-          <a href="${web_url_for('auth_logout')}">
+          {{#link-to logout}}
             <span rel="tooltip" data-placement="bottom" title="Log&nbsp;out" class="fa fa-sign-out hidden-xs fa-lg"></span>
             <span class="visible-xs">Log out</span>
-          </a>
+          {{/link-to}}
         </li>
         {{else}} 
         <!-- % elif allow_login: -->
         <li class="dropdown sign-in">
           <div class="btn-group">
-            {{#drop-down title="Sign in" tag="button" dropdown-id="menuLogin"}}
+            {{#drop-down title="Sign in" tagName="button" dropdown-id="menuLogin"}}
             {{#sign-in}}
             {{/sign-in}}
             {{/drop-down}}

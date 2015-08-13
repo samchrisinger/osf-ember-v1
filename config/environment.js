@@ -18,7 +18,7 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self'",
       'connect-src': "'self' localhost:8000",
-      'img-src': "'self' data:",
+      'img-src': "'self' secure.gravatar.com data:",
       'style-src': "'self' 'unsafe-inline'",
     },
 

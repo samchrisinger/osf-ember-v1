@@ -14,6 +14,7 @@ Router.map(function() {
   });
   this.route('dashboard');
   this.route('forgotpassword');
+  this.route('project', {path: '/p/:pid'});
 });
 
 export default Router;

@@ -7,11 +7,11 @@ export function initialize(container, application) {
         session.set('model', user);
     }, () => {
         session.set('model', null);
+    }).then(()=>{
+        application.register('service:session', session, { singleton: true, instantiate: false });
+        application.inject('controller', 'session', 'service:session');
+        application.advanceReadiness();
     });
-
-    application.register('service:session', session, { singleton: true, instantiate: false });
-    application.inject('controller', 'session', 'service:session');
-    application.advanceReadiness();
 }
 
 export default {
