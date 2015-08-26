@@ -1,0 +1,6 @@
+<a href="#" class="dropdown-toggle" role="button" {{action "toggle"}}>{{title}} <span class="caret"></span></a>
+{{#if expanded}}
+<ul id="{{dropdown-id}}" class="dropdown-menu" role="menu">
+  {{yield}}
+</ul>
+{{/if}}

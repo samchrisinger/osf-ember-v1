@@ -7,14 +7,23 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: { // Here we enable some experimental features:
-        'ember-routing-htmlbars-improved-actions': true,
-        'ember-views-component-block-info': true,
-        'ember-htmlbars-component-generation': true
-      }
+      //FEATURES: { // Here we enable some experimental features:
+      //  'ember-routing-htmlbars-improved-actions': true,
+      //  'ember-views-component-block-info': true,
+      //  'ember-htmlbars-component-generation': true
+      //}
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self' localhost:8000",
+      'img-src': "'self' secure.gravatar.com data:",
+      'style-src': "'self' 'unsafe-inline'",
     },
 
     APP: {
+        devMode: environment === 'development'
       // Here you can pass flags/options to your application instance
       // when it is created
     }
@@ -26,6 +35,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.CAS_HOST = 'http://localhost:8080';
+    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_NAMESPACE = 'v2';
   }
 
   if (environment === 'test') {
@@ -41,7 +53,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST = 'https://api.osf.io';
+    ENV.APP.API_NAMESPACE = 'v2';
   }
 
   return ENV;

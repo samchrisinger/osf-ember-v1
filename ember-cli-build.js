@@ -6,6 +6,15 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/humps/humps.js');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/fontawesome/css/font-awesome.css');
+  app.import('bower_components/gsap/src/minified/TweenLite.min.js');
+  app.import('bower_components/gsap/src/minified/easing/EasePack.min.js');
+
+  app.import('bower_components/osf-style/css/base.css');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

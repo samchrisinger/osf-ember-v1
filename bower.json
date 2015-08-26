@@ -12,7 +12,11 @@
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
-    "localforage": "~1.2.1"
+    "bootstrap": "^3.3.0",
+    "gsap": "~1.17.0",
+    "osf-style": "https://github.com/CenterForOpenScience/osf-style.git#739bb46d59724d2214afefc5fd76ea297daf2e80",
+    "humps": "~0.6.0",
+    "fontawesome": "~4.4.0"
   },
   "resolutions": {
     "ember": "release"

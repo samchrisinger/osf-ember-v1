@@ -1,3 +1,96 @@
-Site Header Component
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbarScope" role="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- ko ifnot: onSearchPage -->
+      <!-- <span class="visible-xs" data-bind="click : toggleSearch, css: searchCSS"> -->
+      <!--   <a class="osf-xs-search pull-right" style="padding-top: 12px" > -->
+      <!--     <span rel="tooltip" data-placement="bottom" title="Search OSF" class="fa fa-search fa-lg fa-inverse" ></span> -->
+      <!--   </a> -->
+      <!-- </span> -->
+      <!-- /ko -->
+      {{#link-to 'index' class="navbar-brand hidden-sm hidden-xs"}}
+        Open Science Framework
+        <img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/>
+      {{/link-to}}
+      {{#link-to 'index' class="navbar-brand visible-sm visible-xs"}}
+        OSF
+        <img src="/assets/img/cos-white2.png" class="osf-navbar-logo" width="27" alt="COS logo"/>
+      {{/link-to}}
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        {{#if session.isAuthenticated}}
+        <li><a href="/dashboard/">My Dashboard</a></li>
+        {{/if}}
+        {{#drop-down title="Browse" tagName="li"}}
+            <li><a href="/explore/activity/">New Projects</a></li>
+            <li><a href="/search/?q=*&amp;filter=registration">Registry</a></li>
+            <li><a href="/meetings/">Meetings</a></li>
+        {{/drop-down}}
+
+        {{#drop-down title="Help" tagName="li"}}
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/getting-started">Getting Started</a></li>
+        {{/drop-down}}
+
+        <!-- ko ifnot: onSearchPage -->
+        <!-- <li class="hidden-xs" data-bind="click : toggleSearch, css: searchCSS"> -->
+        <!--   <a class="" > -->
+        <!--     <span rel="tooltip" data-placement="bottom" title="Search OSF" class="fa fa-search fa-lg" ></span> -->
+        <!--   </a> -->
+        <!-- </li> -->
+        <!-- /ko -->
+        {{#if session.isAuthenticated}}
+        <li>
+          {{#link-to profile class="hidden-lg hidden-xs nav-profile"}}
+          <span rel="tooltip" data-placement="bottom" title={{session.fullname}} class="osf-gravatar">
+            <img width="27px" src="{{session.model.gravitarUrl}}" alt="User gravatar"/>
+          </span>
+          {{/link-to}}
+          {{#link-to profile class="visible-lg visible-xs nav-profile"}}
+          <span rel="tooltip" data-placement="bottom" title="{{session.fullname}}">
+            <span class="osf-gravatar">
+              <img width="27px" src="{{session.model.gravatarUrl}}" alt="User gravatar"/>
+            </span> 
+            {{session.fullname}}
+          </span>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'settings.profile'}}
+            <span rel="tooltip" data-placement="bottom" title="Settings" class="fa fa-cog hidden-xs fa-lg"></span>
+            <span class="visible-xs">Settings</span>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to logout}}
+            <span rel="tooltip" data-placement="bottom" title="Log&nbsp;out" class="fa fa-sign-out hidden-xs fa-lg"></span>
+            <span class="visible-xs">Log out</span>
+          {{/link-to}}
+        </li>
+        {{else}} 
+        <!-- % elif allow_login: -->
+        <li class="dropdown sign-in">
+          <div class="btn-group">
+            {{#drop-down title="Sign in" tagName="button" dropdown-id="menuLogin"}}
+            {{#sign-in}}
+            {{/sign-in}}
+            {{/drop-down}}
+          </div>
+        </li>
+        {{/if}}
+        </ul>
+    </div><!--/.navbar-collapse -->
+  </div>
+
+</nav>
 
 {{yield}}

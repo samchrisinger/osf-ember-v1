@@ -6,8 +6,15 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('items', {path: '/item'});
-  this.route('settings');
+  this.route('settings', function() {
+    this.route('account');
+    this.route('profile');
+    this.route('addons');
+    this.route('notifications');
+  });
+  this.route('dashboard');
+  this.route('forgotpassword');
+  this.route('project', {path: '/p/:pid'});
 });
 
 export default Router;

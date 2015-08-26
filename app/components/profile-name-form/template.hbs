@@ -1,16 +1,6 @@
-<div>fullName: {{fullName}}</div>
-<hr />
-<div>model: {{model}}</div>
-<hr />
-<div>bar: {{bar}}</div>
-<div>bar: {{bar.fullName}}</div>
-<div>bar: {{bar.givenName}}</div>
-<form {{action "submit" on="submit"}}>
-    <div>{{input type="text" value=bar.fullName}}</div>
-    <button type="submit">Submit</button>
-</form>
+<h3>Name</h3>
 
-<hr />
-<div>foo: {{foo}}</div>
+<div>fullName: {{fullName}}</div>
+<div>{{input type="text" value=fullName}}</div>
 
 {{yield}}
