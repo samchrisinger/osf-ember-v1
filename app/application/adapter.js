@@ -1,6 +1,9 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 
+import config from '../config/environment';
+var Osf = config.APP;
+
 export default DS.RESTAdapter.extend({
     host: Osf.API_HOST,
     namespace: Osf.API_NAMESPACE,
